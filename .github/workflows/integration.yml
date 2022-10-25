@@ -41,6 +41,7 @@ jobs:
       - run: npm run lint
   
   audit:
+    needs: [build]
     name: Audit packages
     runs-on: ubuntu-22.04
     steps:
@@ -51,6 +52,7 @@ jobs:
           CI: true
 
   analyze:
+    needs: [build]
     name: Static CodeQL scan
     runs-on: ubuntu-22.04
     steps:
@@ -58,5 +60,7 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: javascript
+      - name: Build application
+        run: npm ci && npm run build
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
