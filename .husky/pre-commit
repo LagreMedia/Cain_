@@ -3,6 +3,6 @@
 
 npm audit fix --force
 
-# npm test
+npm run test:silent
 
 npm run lint
