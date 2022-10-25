@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build application
     runs-on: ubuntu-22.04
-    
+
     strategy:
       matrix:
         node-version: [16.x, 18.x]
@@ -53,7 +53,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      - run: npm lint
+      - run: npm run lint
   
   audit:
     name: Audit packages
@@ -64,4 +64,3 @@ jobs:
         run: npm audit --audit-level moderate
         env:
           CI: true
-
