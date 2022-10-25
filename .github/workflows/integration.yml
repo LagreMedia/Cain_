@@ -7,11 +7,9 @@ jobs:
   build:
     name: Build application
     runs-on: ubuntu-22.04
-
     strategy:
       matrix:
         node-version: [16.x, 18.x]
-
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
@@ -24,11 +22,9 @@ jobs:
   test:
     name: Test application
     runs-on: ubuntu-22.04
-
     strategy:
       matrix:
         node-version: [16.x, 18.x]
-
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
@@ -41,11 +37,9 @@ jobs:
   lint:
     name: Lint application
     runs-on: ubuntu-22.04
-
     strategy:
       matrix:
         node-version: [16.x, 18.x]
-
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
@@ -57,10 +51,21 @@ jobs:
   
   audit:
     name: Audit packages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Audit packages
         run: npm audit --audit-level moderate
         env:
           CI: true
+
+  analyze:
+    name: Static CodeQL scan
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
