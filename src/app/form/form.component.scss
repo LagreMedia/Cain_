@@ -1,0 +1,28 @@
+.wrapper {
+    border: 5px solid black;
+    // display: flex;
+    height: fit-content;
+    // flex-direction: column;
+    align-items: center;
+    .logo-wrapper {
+        border: 5px solid blue;
+    }
+    .info-wrapper {
+        border: 5px solid red;
+    }
+    .form-step-wrapper {
+        border: 5px solid purple;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // width: fit-content;
+        form {
+            flex-direction: column;
+            border: 5px solid green;
+        }
+        // text-align: center;
+    }
+}
+mat-form-field {
+    margin-bottom: -8px;
+}

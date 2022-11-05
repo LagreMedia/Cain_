@@ -1,3 +1,92 @@
-<p>form works!</p>
+<div class="wrapper">
+    <div class="logo-wrapper">
+        <p>Logo Here</p>
+    </div>
+    <div class="info-wrapper">
+        <p>
+            Tell us about you!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus orci ac auctor augue mauris augue neque gravida.
+        </p>
+    </div>
+    <div class="form-step-wrapper">
+        <form>
+            <mat-stepper [linear]="true" #stepper>
+                <mat-step>
+                    <ng-template matStepLabel>Contact Information</ng-template>
+                        <app-input-field></app-input-field>
+                        
+                    <div>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Additonal Information</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>    
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Go Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Submit Form</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>    
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Go Back</button>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+        </form>
+    </div>
+        
+</div>
+
 
 <app-footer></app-footer>

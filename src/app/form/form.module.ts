@@ -11,7 +11,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     RouterModule.forChild([
       { path: '', component: FormComponent }
-    ])
+    ]),
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
