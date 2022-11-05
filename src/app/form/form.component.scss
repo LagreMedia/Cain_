@@ -1,24 +1,29 @@
 .wrapper {
-    border: 5px solid black;
+    min-height: 100vh;
+    background: linear-gradient(#053262, #1061b5, #3689df, #a5761b, #c4840d);
+
+    color: white;
+
+    // border: 5px solid black;
     // display: flex;
     height: fit-content;
     // flex-direction: column;
     align-items: center;
     .logo-wrapper {
-        border: 5px solid blue;
+        // border: 5px solid blue;
     }
     .info-wrapper {
-        border: 5px solid red;
+        // border: 5px solid red;
     }
     .form-step-wrapper {
-        border: 5px solid purple;
+        // border: 5px solid purple;
         display: flex;
         flex-direction: column;
         align-items: center;
         // width: fit-content;
         form {
             flex-direction: column;
-            border: 5px solid green;
+            // border: 5px solid green;
         }
         // text-align: center;
     }
