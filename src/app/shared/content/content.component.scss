@@ -1,0 +1,64 @@
+.wrapper {
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    padding: 50px 0 50px 0;
+    
+    display: grid;
+    gap: 50px;
+}
+
+.text-wrapper {
+    padding: 0 50px 0 50px;
+
+    display: grid;
+    gap: 50px 0px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+p {
+    margin: 0;
+    color: #222222;
+    font-family: Inter;
+}
+
+.row-one {
+    text-align: left;
+}
+.row-two {
+    text-align: right;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    a {
+        padding: 5px 50px 5px 50px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+        font-weight: normal;
+    
+        background: #01D756;
+        color: white;
+    }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .text-wrapper {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    p {
+        text-align: center !important;
+    }
+}
