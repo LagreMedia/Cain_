@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { InputFieldComponent } from './input-field/input-field.component';
-import { AppModule } from '../app.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { AppModule } from '../app.module';
     InputFieldComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   schemas: [
     NO_ERRORS_SCHEMA,

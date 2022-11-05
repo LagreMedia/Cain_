@@ -1,92 +1,114 @@
 <div class="wrapper">
-    <div class="logo-wrapper">
-        <p>Logo Here</p>
-    </div>
-    <div class="info-wrapper">
-        <p>
-            Tell us about you!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus orci ac auctor augue mauris augue neque gravida.
-        </p>
-    </div>
-    <div class="form-step-wrapper">
-        <form>
+    <div class="form-wrapper">
+        <div class="logo-wrapper">
+            <p>Logo Here</p>
+        </div>
+        <div class="info-wrapper">
+            <p>
+                Tell us about you!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus orci ac auctor augue mauris augue neque gravida.
+            </p>
+        </div>
+        <div class="form-step-wrapper">
             <mat-stepper [linear]="true" #stepper>
                 <mat-step>
                     <ng-template matStepLabel>Contact Information</ng-template>
-                        <app-input-field></app-input-field>
-                        
-                    <div>
+                    <form [formGroup]="contactInfoFormGroup">
+                        <app-input-field 
+                            [fieldLabel]="'First Name'" 
+                            [placeHolder]="'John'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'Last Name'" 
+                            [placeHolder]="'Doe'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'Address'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'City'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'State'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'Zip Code'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'Email Address'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'Home Phone'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'Age'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'Gender'" 
+                            [placeHolder]="'1233 Lake Ave'"
+                        ></app-input-field>
+                    </form>
+                    <div class="button-next">
                         <button mat-button matStepperNext>Next</button>
                     </div>
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Additonal Information</ng-template>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>    
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <div>
+                    <form>
+                        <app-input-field 
+                            [fieldLabel]="'First Name'" 
+                            [placeHolder]="'John'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'First Name'" 
+                            [placeHolder]="'John'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'First Name'" 
+                            [placeHolder]="'John'"
+                        ></app-input-field>
+                    </form>
+                    <div class="button-next">
                         <button mat-button matStepperPrevious>Go Back</button>
                         <button mat-button matStepperNext>Next</button>
                     </div>
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Submit Form</ng-template>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>    
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Input</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <div>
+                    <form>
+                        <app-input-field 
+                            [fieldLabel]="'First Name'" 
+                            [placeHolder]="'John'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'First Name'" 
+                            [placeHolder]="'John'"
+                        ></app-input-field>
+                        <app-input-field 
+                            [fieldLabel]="'First Name'" 
+                            [placeHolder]="'John'"
+                        ></app-input-field>
+                    </form>
+                    <div class="button-next">
                         <button mat-button matStepperPrevious>Go Back</button>
                     </div>
                 </mat-step>
             </mat-stepper>
-        </form>
+        </div>
+            
     </div>
-        
+    
+    
+    
 </div>
-
 
 <app-footer></app-footer>
