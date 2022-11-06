@@ -12,50 +12,68 @@
             </p>
         </div>
         <div class="form-step-wrapper">
-            <mat-stepper [linear]="true" #stepper>
+            <mat-stepper [linear]="true" #stepper [orientation]="orientationType">
                 <mat-step>
-                    <ng-template matStepLabel>Contact Information</ng-template>
-                    <form [formGroup]="contactInfoFormGroup">
+                    <ng-template matStepLabel class="label">Contact Information</ng-template>
+                    <form>
                         <app-input-field 
-                            [fieldLabel]="'First Name'" 
-                            [placeHolder]="'John'"
+                            fieldLabel='First Name' 
+                            [(ngModel)]="contactInfo.firstname"
+                            placeHolder='John'
+                            [formControl]="contactInfoFormGroup.get('firstName')"
+                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            #firstname
                         ></app-input-field>
-                        <app-input-field 
+                        <!-- <app-input-field 
                             [fieldLabel]="'Last Name'" 
                             [placeHolder]="'Doe'"
+                            [formControl]="contactInfoFormGroup.get('lastName')"
                         ></app-input-field>
                         <app-input-field 
                             [fieldLabel]="'Address'" 
                             [placeHolder]="'1233 Lake Ave'"
+                            [formControl]="contactInfoFormGroup.get('address')"
                         ></app-input-field>
                         <app-input-field 
                             [fieldLabel]="'City'" 
-                            [placeHolder]="'1233 Lake Ave'"
+                            [placeHolder]="'New York'"
+                            [formControl]="contactInfoFormGroup.get('city')"
                         ></app-input-field>
                         <app-input-field 
-                            [fieldLabel]="'State'" 
-                            [placeHolder]="'1233 Lake Ave'"
+                            fieldLabel='State' 
+                            placeHolder='New York'
+                            [formControl]="contactInfoFormGroup.get('state')"
+                            inputType="dropdown"
+                            [list]="US_STATES"
                         ></app-input-field>
                         <app-input-field 
                             [fieldLabel]="'Zip Code'" 
-                            [placeHolder]="'1233 Lake Ave'"
+                            [placeHolder]="'12335'"
+                            [formControl]="contactInfoFormGroup.get('zipCode')"
                         ></app-input-field>
                         <app-input-field 
                             [fieldLabel]="'Email Address'" 
-                            [placeHolder]="'1233 Lake Ave'"
+                            [placeHolder]="'johndoe@email.com'"
+                            [formControl]="contactInfoFormGroup.get('emailAddress')"
                         ></app-input-field>
                         <app-input-field 
                             [fieldLabel]="'Home Phone'" 
-                            [placeHolder]="'1233 Lake Ave'"
+                            [placeHolder]="'xxx-xxx-xxxx'"
+                            [formControl]="contactInfoFormGroup.get('homePhone')"
                         ></app-input-field>
                         <app-input-field 
                             [fieldLabel]="'Age'" 
-                            [placeHolder]="'1233 Lake Ave'"
+                            [placeHolder]="'12'"
+                            [formControl]="contactInfoFormGroup.get('age')"
+                            inputType="number"
                         ></app-input-field>
                         <app-input-field 
                             [fieldLabel]="'Gender'" 
                             [placeHolder]="'1233 Lake Ave'"
-                        ></app-input-field>
+                            [formControl]="contactInfoFormGroup.get('gender')"
+                            inputType="dropdown"
+                            [list]="['Male', 'Female']"
+                        ></app-input-field> -->
                     </form>
                     <div class="button-next">
                         <button mat-button matStepperNext>Next</button>
@@ -64,7 +82,7 @@
                 <mat-step>
                     <ng-template matStepLabel>Additonal Information</ng-template>
                     <form>
-                        <app-input-field 
+                        <!-- <app-input-field 
                             [fieldLabel]="'First Name'" 
                             [placeHolder]="'John'"
                         ></app-input-field>
@@ -75,7 +93,7 @@
                         <app-input-field 
                             [fieldLabel]="'First Name'" 
                             [placeHolder]="'John'"
-                        ></app-input-field>
+                        ></app-input-field> -->
                     </form>
                     <div class="button-next">
                         <button mat-button matStepperPrevious>Go Back</button>
@@ -85,7 +103,7 @@
                 <mat-step>
                     <ng-template matStepLabel>Submit Form</ng-template>
                     <form>
-                        <app-input-field 
+                        <!-- <app-input-field 
                             [fieldLabel]="'First Name'" 
                             [placeHolder]="'John'"
                         ></app-input-field>
@@ -96,7 +114,7 @@
                         <app-input-field 
                             [fieldLabel]="'First Name'" 
                             [placeHolder]="'John'"
-                        ></app-input-field>
+                        ></app-input-field> -->
                     </form>
                     <div class="button-next">
                         <button mat-button matStepperPrevious>Go Back</button>

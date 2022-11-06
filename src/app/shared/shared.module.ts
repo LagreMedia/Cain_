@@ -5,6 +5,7 @@ import { NavComponent } from './nav/nav.component';
 import { InputFieldComponent } from './input-field/input-field.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     CommonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   schemas: [
     NO_ERRORS_SCHEMA,
