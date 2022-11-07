@@ -15,20 +15,22 @@
         display: flex;
         flex-direction: column;
         .logo-wrapper {
-            border: 2px solid red;
             margin: 20px;
         }
         .info-wrapper {
-            border: 2px solid green;
             margin: 20px;
         }
         .form-step-wrapper {
-            border: 2px solid blue;
+            width: 60%;
             margin: 20px;
             form {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 justify-items: center;
+
+                app-input-field {
+                    width: 100%;
+                }
             }
             mat-stepper {
                 height: 100%;
@@ -52,6 +54,7 @@
         .button-next {
             display: flex;
             justify-content: space-around;
+            color: black;
         }
     }
 

@@ -1,6 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -27,7 +26,6 @@ export class FormComponent implements OnInit {
     age: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required])
   });
-  firstname = new FormControl('', [Validators.required]);
 
   contactInfo = {
     firstname: '',
@@ -43,6 +41,13 @@ export class FormComponent implements OnInit {
     }
   }
 
+  onError(control: FormControl) {
+    if (control.hasError('required')) {
+      return "Field is required"
+    }
+    return ''
+  }
+
   getErrorMessage(formControl: any) {
     if (formControl.hasError('required')) {
       return 'Field is Required';
@@ -53,6 +58,10 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    console.log(this.contactInfoFormGroup.get('firstName')?.value)
   }
 
 }
