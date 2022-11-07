@@ -1,4 +1,12 @@
 .wrapper {
+    min-height: 100vh;
+    background: linear-gradient(#053262, #1061b5, #3689df, #a5761b, #c4840d);
+
+    color: white;
+
+    // border: 5px solid black;
+    // display: flex;
+    height: fit-content;
     height: auto;
     min-height: 100% !important;
     .form-wrapper {
