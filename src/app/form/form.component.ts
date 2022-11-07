@@ -43,9 +43,9 @@ export class FormComponent implements OnInit {
 
   onError(control: FormControl) {
     if (control.hasError('required')) {
-      return "Field is required"
+      return 'Field is required';
     }
-    return ''
+    return '';
   }
 
   getErrorMessage(formControl: any) {
@@ -61,7 +61,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.contactInfoFormGroup.get('firstName')?.value)
+    console.log(this.contactInfoFormGroup.get('firstName')?.value);
   }
 
 }
