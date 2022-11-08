@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    MatButtonModule
   ],
   providers: [],
   schemas: [

@@ -3,19 +3,28 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormComponent } from './form.component';
 import { SharedModule } from '../shared/shared.module';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     SharedModule,
+    MatStepperModule,
     RouterModule.forChild([
       { path: '', component: FormComponent }
-    ])
+    ]),
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true }
+    }
+  ]
 })
 export class FormModule { }

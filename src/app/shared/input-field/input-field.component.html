@@ -1,0 +1,34 @@
+<div>
+    <mat-form-field appearance="outline" *ngIf="inputType === 'input'">
+        <mat-label>{{ fieldLabel }}</mat-label>
+        <input 
+            type="text"
+            matInput 
+            [placeholder]="placeHolder" 
+            [formControl]="formControl" 
+            [required]="isRequired"
+            [errorStateMatcher]="matcher"
+        >
+        <mat-error *ngIf="formControl.invalid && formControl.touched">{{ onError }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="inputType === 'number'">
+        <mat-label>{{ fieldLabel }}</mat-label>
+        <input 
+        type="number" 
+        matInput 
+        [placeholder]="placeHolder" 
+        [formControl]="formControl" 
+        [required]="isRequired"
+        >
+        <mat-error *ngIf="formControl.invalid && formControl.touched">{{ onError }}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="inputType === 'dropdown'">
+        <mat-label>{{ fieldLabel }}</mat-label>
+        <mat-select [formControl]="formControl" [required]="isRequired">
+            <mat-option *ngFor="let l of list" [value]="l">
+                {{ l }}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formControl.invalid && formControl.touched">{{ onError }}</mat-error>
+    </mat-form-field>
+</div>
