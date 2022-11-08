@@ -7,12 +7,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavComponent,
-    InputFieldComponent
+    InputFieldComponent,
+    ContentComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     FooterComponent,
     NavComponent,
-    InputFieldComponent
+    InputFieldComponent,
+    ContentComponent
   ]
 
 })
