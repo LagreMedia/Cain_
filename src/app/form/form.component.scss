@@ -4,15 +4,11 @@
 
     color: white;
 
-    // border: 5px solid black;
-    // display: flex;
-    height: fit-content;
-    height: auto;
     min-height: 100% !important;
     .form-wrapper {
         height: 100% ;
-        align-items: center;
         display: flex;
+        align-items: center;
         flex-direction: column;
         .logo-wrapper {
             margin: 20px;
@@ -39,7 +35,6 @@
         
         @media only screen and (max-width: 600px) {
             .form-step-wrapper {
-                border: 2px solid orange;
                 form {
                     display: grid;
                     grid-template-columns: 1fr;

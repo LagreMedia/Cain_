@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { FormComponent } from './form.component';
 import { SharedModule } from '../shared/shared.module';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     SharedModule,
+    MatStepperModule,
     RouterModule.forChild([
       { path: '', component: FormComponent }
     ]),
