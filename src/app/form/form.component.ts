@@ -73,10 +73,14 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // this.contactInfoFormGroup.valueChanges.subscribe((value) => {
-    //   // value is a key value pair of each form control value
-    //   for
-    // })
+    this.contactInfoFormGroup.valueChanges.subscribe((value) => {
+      // value is a key value pair of each form control value
+      for (const key in Object.keys(value)) {
+        if (key) {
+          this.contactInfoFormNotComplete = value[key] === '';
+        }
+      }
+    });
   }
 
   onSubmit() {

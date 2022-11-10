@@ -19,20 +19,28 @@
         .form-step-wrapper {
             width: 60%;
             margin: 20px;
-            form {
+
+            .contactInfo {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .additionalInfo {
+                display: grid;
+                grid-auto-columns: auto;
+            }
+            form {
                 justify-items: center;
                 app-input-field {
-                    background: white;
                     border-radius: 4px;
                     padding: 0px;
                     width: 100%;
+                    color: black;
                 }
             }
             mat-stepper {
-                background: transparent;
-                // background: #e1e1e1;
+                background: #e1e1e1;
+                border-radius: 10px;
                 height: 100%;
             }
         }

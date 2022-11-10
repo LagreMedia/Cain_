@@ -12,10 +12,10 @@
             </p>
         </div>
         <div class="form-step-wrapper">
-            <mat-stepper #stepper [orientation]="orientationType" linear="false">
-                <mat-step [stepControl]="contactInfoFormGroup" errorMessage="Form not complete">
+            <mat-stepper #stepper [orientation]="orientationType" linear="true">
+                <mat-step [stepControl]="contactInfoFormGroup" errorMessage="Form not complete" editable="false">
                     <ng-template matStepLabel class="label">Contact Information</ng-template>
-                    <form [formGroup]="contactInfoFormGroup">
+                    <form [formGroup]="contactInfoFormGroup" class="contactInfo">
                          <app-input-field 
                             fieldLabel='First Name' 
                             [(ngModel)]="contactInfo.firstname"
@@ -116,9 +116,9 @@
                         <button mat-button matStepperNext [disabled]="contactInfoFormNotComplete">Next</button>
                     </div>
                 </mat-step>
-                <mat-step [stepControl]="contactInfoFormGroup" errorMessage="Form not complete">
+                <mat-step [stepControl]="additionalInfoFormGroup" errorMessage="Form not complete">
                     <ng-template matStepLabel>Additonal Information</ng-template>
-                    <form>
+                    <form class="additionalInfo">
                         <app-input-field
                             fieldLabel="High school graduation year (or GED)?"
                             inputType="dropdown"
@@ -168,17 +168,16 @@
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
+                            class="bottom"
                             fieldLabel="How motivated are you to further your education?"
                             inputType="dropdown"
                             [list]="['1 - Not motivated', 2, '10 - Very Motivated']"
                             [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
                             name="highschool"
                             ngDefaultControl
-                            style="font-size:small"
                         ></app-input-field>
                     </form>
                     <div class="button-next">
-                        <button mat-button matStepperPrevious>Go Back</button>
                         <button mat-button matStepperNext>Next</button>
                     </div>
                 </mat-step>
@@ -186,7 +185,6 @@
                     <ng-template matStepLabel>Submit Form</ng-template>
                     <p style="color: black;">Legal Information Here</p>
                     <div class="button-next">
-                        <button mat-button matStepperPrevious>Go Back</button>
                         <button mat-raised-button (click)="onSubmit()">Submit</button>
                     </div>
                 </mat-step>
