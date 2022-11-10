@@ -49,8 +49,19 @@
         .button-next {
             display: flex;
             justify-content: space-around;
-            color: black;
+            color: white;
         }
     }
 
+}
+
+button {
+    padding: 5px 50px 5px 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    font-weight: normal;
+
+    background: #01D756;
+    color: white;
 }

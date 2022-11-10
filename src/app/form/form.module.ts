@@ -5,6 +5,7 @@ import { FormComponent } from './form.component';
 import { SharedModule } from '../shared/shared.module';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatStepperModule } from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     RouterModule.forChild([
       { path: '', component: FormComponent }
     ]),
+    MatButtonModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
