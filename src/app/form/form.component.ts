@@ -37,7 +37,7 @@ export class FormComponent implements OnInit {
     campusPreference: new FormControl('', [Validators.required]),
     startDate: new FormControl('', [Validators.required]),
     motivation: new FormControl('', [Validators.required])
-  })
+  });
 
   contactInfo = {
     firstname: '',
@@ -65,7 +65,7 @@ export class FormComponent implements OnInit {
     if (control.hasError('required')) {
       return 'Field is required';
     } else if (control.hasError('email')) {
-      return 'Please enter a valid email'
+      return 'Please enter a valid email';
     }
     return '';
   }
