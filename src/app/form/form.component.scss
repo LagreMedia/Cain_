@@ -23,18 +23,19 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 justify-items: center;
-
                 app-input-field {
                     width: 100%;
                 }
             }
             mat-stepper {
+                background: #e1e1e1;
                 height: 100%;
             }
         }
         
         @media only screen and (max-width: 600px) {
             .form-step-wrapper {
+                width: 100%;
                 form {
                     display: grid;
                     grid-template-columns: 1fr;

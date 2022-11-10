@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
   'North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island',
   'South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington',
   'West Virginia','Wisconsin','Wyoming'];
+
   contactInfoFormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(4)]),
     lastName: new FormControl('', [Validators.required]),
@@ -21,15 +22,34 @@ export class FormComponent implements OnInit {
     city: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
     zipCode: new FormControl('', [Validators.required]),
-    emailAddress: new FormControl('', [Validators.required]),
+    emailAddress: new FormControl('', [Validators.required, Validators.email]),
     homePhone: new FormControl('', [Validators.required]),
     age: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required])
   });
 
+  contactInfoFormNotComplete = true;
+
+  additionalInfoFormGroup = new FormGroup({
+    graduationYear: new FormControl('', [Validators.required]),
+    militaryAffil: new FormControl('', [Validators.required]),
+    highestEducation: new FormControl('', [Validators.required]),
+    campusPreference: new FormControl('', [Validators.required]),
+    startDate: new FormControl('', [Validators.required]),
+    motivation: new FormControl('', [Validators.required])
+  })
+
   contactInfo = {
     firstname: '',
-    lastname: ''
+    lastname: '',
+    address: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    emailAddress: '',
+    homePhone: '',
+    age: 0,
+    gender: ''
   };
 
   orientationType: 'vertical' | 'horizontal' = 'horizontal';
@@ -41,16 +61,11 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onError(control: FormControl) {
+  getErrorMessage(control: any) {
     if (control.hasError('required')) {
       return 'Field is required';
-    }
-    return '';
-  }
-
-  getErrorMessage(formControl: any) {
-    if (formControl.hasError('required')) {
-      return 'Field is Required';
+    } else if (control.hasError('email')) {
+      return 'Please enter a valid email'
     }
     return '';
   }
