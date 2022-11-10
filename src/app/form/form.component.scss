@@ -24,11 +24,15 @@
                 grid-template-columns: 1fr 1fr;
                 justify-items: center;
                 app-input-field {
+                    background: white;
+                    border-radius: 4px;
+                    padding: 0px;
                     width: 100%;
                 }
             }
             mat-stepper {
-                background: #e1e1e1;
+                background: transparent;
+                // background: #e1e1e1;
                 height: 100%;
             }
         }

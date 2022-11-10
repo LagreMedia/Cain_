@@ -73,10 +73,17 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // this.contactInfoFormGroup.valueChanges.subscribe((value) => {
+    //   // value is a key value pair of each form control value
+    //   for
+    // })
   }
 
   onSubmit() {
     console.log(this.contactInfoFormGroup.get('firstName')?.value);
   }
 
+  checkContactInfoFields() {
+
+  }
 }
