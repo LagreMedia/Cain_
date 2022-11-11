@@ -25,8 +25,8 @@
     <mat-form-field appearance="outline" *ngIf="inputType === 'dropdown'">
         <mat-label>{{ fieldLabel }}</mat-label>
         <mat-select [formControl]="formControl" [required]="isRequired">
-            <mat-option *ngFor="let l of list" [value]="l">
-                {{ l }}
+            <mat-option *ngFor="let l of list" [value]="l.value ?? l">
+                {{ l.title ?? l }}
             </mat-option>
         </mat-select>
         <mat-error *ngIf="formControl.invalid && formControl.touched">{{ onError }}</mat-error>

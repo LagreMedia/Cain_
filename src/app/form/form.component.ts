@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FORM_FIELDS } from './components/formFields';
 
 @Component({
   selector: 'app-form',
@@ -7,13 +8,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  US_STATES = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware',
-  'District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana',
-  'Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota',
-  'Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina',
-  'North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island',
-  'South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington',
-  'West Virginia','Wisconsin','Wyoming'];
   contactInfoFormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(4)]),
     lastName: new FormControl('', [Validators.required]),
@@ -21,15 +15,47 @@ export class FormComponent implements OnInit {
     city: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
     zipCode: new FormControl('', [Validators.required]),
-    emailAddress: new FormControl('', [Validators.required]),
+    emailAddress: new FormControl('', [Validators.required, Validators.email]),
     homePhone: new FormControl('', [Validators.required]),
     age: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required])
   });
 
+  contactInfoFormNotComplete = true;
+  formFields = FORM_FIELDS;
+
+  additionalInfoFormGroup = new FormGroup({
+    graduationYear: new FormControl('', [Validators.required]),
+    militaryAffil: new FormControl('', [Validators.required]),
+    highestEducation: new FormControl('', [Validators.required]),
+    campusPreference: new FormControl('', [Validators.required]),
+    programOfInterest: new FormControl('', [Validators.required]),
+    startDate: new FormControl('', [Validators.required]),
+    motivation: new FormControl('', [Validators.required])
+  });
+  additionalInfoFormNotComplete = true;
+
   contactInfo = {
     firstname: '',
-    lastname: ''
+    lastname: '',
+    address: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    emailAddress: '',
+    homePhone: '',
+    age: 0,
+    gender: ''
+  };
+
+  additionalInfo = {
+    graduationYear: '',
+    militaryAffil: '',
+    highestEducation: '',
+    campusPreference: '',
+    programOfInterest: '',
+    startDate: '',
+    motivation: '',
   };
 
   orientationType: 'vertical' | 'horizontal' = 'horizontal';
@@ -41,16 +67,12 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onError(control: FormControl) {
+  getErrorMessage(control: any) {
     if (control.hasError('required')) {
       return 'Field is required';
     }
-    return '';
-  }
-
-  getErrorMessage(formControl: any) {
-    if (formControl.hasError('required')) {
-      return 'Field is Required';
+    if (control.hasError('email')) {
+      return 'Please enter a valid email';
     }
     return '';
   }
@@ -58,10 +80,28 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.contactInfoFormGroup.valueChanges.subscribe((value) => {
+      // value is a key value pair of each form control value
+      for (const key in Object.keys(value)) {
+        if (key) {
+          this.contactInfoFormNotComplete = value[key] === '' || !this.contactInfoFormGroup.valid;
+        }
+      }
+    });
+    this.additionalInfoFormGroup.valueChanges.subscribe((value) => {
+      // value is a key value pair of each form control value
+      for (const key in Object.keys(value)) {
+        if (key) {
+          this.additionalInfoFormNotComplete = value[key] === '' || !this.additionalInfoFormGroup.valid;
+        }
+      }
+    });
   }
 
   onSubmit() {
-    console.log(this.contactInfoFormGroup.get('firstName')?.value);
+    // TODO
+    console.log(this.contactInfoFormGroup.value);
+    console.log(this.additionalInfoFormGroup.value);
   }
 
 }
