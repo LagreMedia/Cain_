@@ -58,7 +58,7 @@
                             [formControl]="contactInfoFormGroup.get('state')"
                             [(ngModel)]="contactInfo.state"
                             inputType="dropdown"
-                            [list]="US_STATES"
+                            [list]="formFields.states"
                             [onError]="getErrorMessage(contactInfoFormGroup.get('state'))"
                             name="state"
                             ngDefaultControl
@@ -92,10 +92,10 @@
                         ></app-input-field>
                         <app-input-field 
                             fieldLabel='Age' 
-                            placeHolder='12'
+                            [list]="formFields.age()"
                             [formControl]="contactInfoFormGroup.get('age')"
                             [(ngModel)]="contactInfo.age"
-                            inputType="number"
+                            inputType="dropdown"
                             [onError]="getErrorMessage(contactInfoFormGroup.get('age'))"
                             name="age"
                             ngDefaultControl
@@ -116,69 +116,83 @@
                         <button mat-button matStepperNext [disabled]="contactInfoFormNotComplete">Next</button>
                     </div>
                 </mat-step>
-                <mat-step [stepControl]="additionalInfoFormGroup" errorMessage="Form not complete">
+                <mat-step [stepControl]="additionalInfoFormGroup" errorMessage="Form not complete" editable="false">
                     <ng-template matStepLabel>Additonal Information</ng-template>
-                    <form class="additionalInfo">
+                    <form class="additionalInfo" [formGroup]="additionalInfoFormGroup">
                         <app-input-field
                             fieldLabel="High school graduation year (or GED)?"
                             inputType="dropdown"
-                            [list]="[1, 2, 3]"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [list]="formFields.graduationYear()"
+                            [formControl]="additionalInfoFormGroup.get('graduationYear')"
+                            [onError]="getErrorMessage(additionalInfoFormGroup.get('graduationYear'))"
                             name="highschool"
+                            [(ngModel)]="additionalInfo.graduationYear"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
                             fieldLabel="Military Affiliation?"
                             inputType="dropdown"
-                            [list]="[1, 2, 3]"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [list]="formFields.militaryAffiliation"
+                            [formControl]="additionalInfoFormGroup.get('militaryAffil')"
+                            [onError]="getErrorMessage(additionalInfoFormGroup.get('militaryAffil'))"
                             name="highschool"
+                            [(ngModel)]="additionalInfo.militaryAffil"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
                             fieldLabel="Highest Level of Education Completed"
                             inputType="dropdown"
-                            [list]="[1, 2, 3]"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [list]="formFields.levelOfEducation"
+                            [formControl]="additionalInfoFormGroup.get('highestEducation')"
+                            [onError]="getErrorMessage(additionalInfoFormGroup.get('highestEducation'))"
                             name="highschool"
+                            [(ngModel)]="additionalInfo.highestEducation"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
                             fieldLabel="Program of Interest"
                             inputType="dropdown"
-                            [list]="[1, 2, 3]"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [list]="formFields.programOfInterest"
+                            [formControl]="additionalInfoFormGroup.get('programOfInterest')"
+                            [onError]="getErrorMessage(additionalInfoFormGroup.get('programOfInterest'))"
                             name="highschool"
+                            [(ngModel)]="additionalInfo.programOfInterest"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
                             fieldLabel="Campus Preference"
                             inputType="dropdown"
-                            [list]="[1, 2, 3]"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [formControl]="additionalInfoFormGroup.get('campusPreference')"
+                            [list]="formFields.campusPreference"
+                            [onError]="getErrorMessage(additionalInfoFormGroup.get('campusPreference'))"
                             name="highschool"
+                            [(ngModel)]="additionalInfo.campusPreference"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
                             fieldLabel="Desired State Date?"
                             inputType="dropdown"
-                            [list]="[1, 2, 3]"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [formControl]="additionalInfoFormGroup.get('startDate')"
+                            [list]="formFields.startDate"
+                            [onError]="getErrorMessage(additionalInfoFormGroup.get('startDate'))"
                             name="highschool"
+                            [(ngModel)]="additionalInfo.startDate"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
                             class="bottom"
                             fieldLabel="How motivated are you to further your education?"
                             inputType="dropdown"
-                            [list]="['1 - Not motivated', 2, '10 - Very Motivated']"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [formControl]="additionalInfoFormGroup.get('motivation')"
+                            [list]="formFields.motivationLevel"
+                            [onError]="getErrorMessage(additionalInfoFormGroup.get('motivation'))"
                             name="highschool"
+                            [(ngModel)]="additionalInfo.motivation"
                             ngDefaultControl
                         ></app-input-field>
                     </form>
                     <div class="button-next">
-                        <button mat-button matStepperNext>Next</button>
+                        <button mat-button matStepperNext [disabled]="additionalInfoFormNotComplete">Next</button>
                     </div>
                 </mat-step>
                 <mat-step>
