@@ -11,10 +11,22 @@
         align-items: center;
         flex-direction: column;
         .logo-wrapper {
-            margin: 20px;
+            width: 100%;
+            margin: 50px 0 0 0;
+            p {
+                text-align: right;
+                margin-right: 100px;
+            }
         }
         .info-wrapper {
-            margin: 20px;
+            h1 {
+                font-size: 70px;
+            }
+            p {
+                width: 60%;
+                margin: 10px 0 0 20px;
+                font-size: 15px;
+            }
         }
         .form-step-wrapper {
             width: 60%;
@@ -41,7 +53,7 @@
             mat-stepper {
                 background: #e1e1e1;
                 border-radius: 10px;
-                height: 100%;
+                // height: 100%;
             }
         }
         
