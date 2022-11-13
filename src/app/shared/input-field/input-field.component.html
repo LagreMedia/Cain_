@@ -7,9 +7,8 @@
             [placeholder]="placeHolder" 
             [formControl]="formControl" 
             [required]="isRequired"
-            [errorStateMatcher]="matcher"
         >
-        <mat-error *ngIf="formControl.invalid && formControl.touched">{{ onError }}</mat-error>
+        <mat-error *ngIf="formControl.invalid">{{ onError }}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" *ngIf="inputType === 'number'">
         <mat-label>{{ fieldLabel }}</mat-label>
@@ -20,7 +19,7 @@
         [formControl]="formControl" 
         [required]="isRequired"
         >
-        <mat-error *ngIf="formControl.invalid && formControl.touched">{{ onError }}</mat-error>
+        <mat-error *ngIf="formControl.invalid">{{ onError }}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" *ngIf="inputType === 'dropdown'">
         <mat-label>{{ fieldLabel }}</mat-label>
@@ -29,6 +28,6 @@
                 {{ l.title ?? l }}
             </mat-option>
         </mat-select>
-        <mat-error *ngIf="formControl.invalid && formControl.touched">{{ onError }}</mat-error>
+        <mat-error *ngIf="formControl.invalid">{{ onError }}</mat-error>
     </mat-form-field>
 </div>

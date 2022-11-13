@@ -13,7 +13,7 @@
         </div>
         <div class="form-step-wrapper">
             <mat-stepper #stepper [orientation]="orientationType" linear="true">
-                <mat-step [stepControl]="contactInfoFormGroup" errorMessage="Form not complete" editable="false">
+                <mat-step [stepControl]="contactInfoFormGroup" errorMessage="Form not complete" editable="false" (interacted)="onInteraction('contact')">
                     <ng-template matStepLabel class="label">Contact Information</ng-template>
                     <form [formGroup]="contactInfoFormGroup" class="contactInfo">
                          <app-input-field 
