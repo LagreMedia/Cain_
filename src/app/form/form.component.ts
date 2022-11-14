@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FORM_FIELDS } from './components/formFields';
 
+const PHONE_NUMBER_REGEX = /(^[0-9]{3})-([0-9]{3})-([0-9]{4}$)/gm;
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -9,14 +10,14 @@ import { FORM_FIELDS } from './components/formFields';
 })
 export class FormComponent implements OnInit {
   contactInfoFormGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required, Validators.maxLength(4)]),
+    firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
     zipCode: new FormControl('', [Validators.required]),
     emailAddress: new FormControl('', [Validators.required, Validators.email]),
-    homePhone: new FormControl('', [Validators.required]),
+    homePhone: new FormControl('', [Validators.required, Validators.pattern(PHONE_NUMBER_REGEX)]),
     age: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required])
   });
@@ -74,6 +75,9 @@ export class FormComponent implements OnInit {
     if (control.hasError('email')) {
       return 'Please enter a valid email';
     }
+    if (control.hasError('pattern')) {
+      return 'Phone number must have format: xxx-xxx-xxxx';
+    }
     return '';
   }
 
@@ -96,6 +100,21 @@ export class FormComponent implements OnInit {
         }
       }
     });
+  }
+
+  onInteraction(step: 'contact' | 'additional') {
+    switch (step) {
+      case 'contact':
+        if (this.contactInfoFormNotComplete) {
+          window.alert('Contact Information Form Not Complete!');
+        }
+        break;
+      case 'additional':
+        if (this.additionalInfoFormNotComplete) {
+          window.alert('Additional Information Form Not Complete!');
+        }
+        break;
+    }
   }
 
   onSubmit() {
