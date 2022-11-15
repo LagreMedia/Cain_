@@ -51,7 +51,7 @@
                 }
             }
             mat-stepper {
-                background: #e1e1e1;
+                background: transparent;
                 border-radius: 10px;
             }
         }
@@ -87,4 +87,9 @@ button {
 
     background: #01D756;
     color: white;
+}
+
+::ng-deep .mat-form-field-outline {
+    background-color: #f6f7f8 !important;
+    border-radius: 5px;
 }
