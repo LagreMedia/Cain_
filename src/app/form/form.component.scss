@@ -1,25 +1,26 @@
 .wrapper {
-    background: linear-gradient(#053262, #1061b5, #3689df, #a5761b, #c4840d);
+    background-image: 
+        linear-gradient(rgb(23, 45, 129, 0.5), rgb(16, 97, 181, 0.5), rgb(54, 137, 223, 0.5), rgb(165, 118, 27, 0.5), rgb(251, 204, 20, 0.5)), 
+        url("../../assets/hats-bkg.png");
+    background-size: cover;
     color: white;
     min-height: 100% !important;
-    // height: 100%;
     
     .form-wrapper {
         display: flex;
         align-items: center;
         flex-direction: column;
-        border: 3px solid green;
+        height: inherit;
         .logo-wrapper {
             display: grid;
             justify-items: end;
-            border: 3px solid red;
             width: 100%;
             margin: 10px 0 0 0;
         }
         .info-wrapper {
-            border: 3px solid orange;
-            width: 100%;
+            width: 90%;
             margin-left: 10vw;
+            margin-bottom: 1vh;
             h1 {
                 font-size: 70px;
             }
@@ -30,11 +31,11 @@
             }
         }
         .form-step-wrapper {
-            border: 3px solid green;
             background-color: white;
             width: 60%;
             margin: 20px;
             border-radius: 5px;
+            height: inherit;
             .contactInfo {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -42,7 +43,7 @@
 
             .additionalInfo {
                 display: grid;
-                grid-auto-columns: auto;
+                grid-template-columns: 1fr 1fr;
             }
             form {
                 justify-items: center;
@@ -63,6 +64,10 @@
             .form-step-wrapper {
                 width: 100%;
                 .contactInfo {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+                .additionalInfo {
                     display: grid;
                     grid-template-columns: 1fr;
                 }
