@@ -1,14 +1,14 @@
 <div class="wrapper">
     <div class="form-wrapper">
         <div class="logo-wrapper">
-            <p>Logo Here</p>
+            <img src="../../assets/berkeley-logo.png">
         </div>
         <div class="info-wrapper">
             <h1>
                 Tell us about you!
             </h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus orci ac auctor augue mauris augue neque gravida.
+                Fill out the survey below so you can get your free information today!
             </p>
         </div>
         <div class="form-step-wrapper">
@@ -197,18 +197,15 @@
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Submit Form</ng-template>
-                    <p style="color: black;">Legal Information Here</p>
+                    <p style="color: black;">{{ copy.submissionLegal }}</p>
+                    <p style="color: black;">{{ "Thank you!" }}</p>
                     <div class="button-next">
                         <button mat-raised-button (click)="onSubmit()">Submit</button>
                     </div>
                 </mat-step>
             </mat-stepper>
-        </div>
-            
+        </div> 
     </div>
-    
-    
-    
 </div>
 <app-content></app-content>
 <app-footer></app-footer>

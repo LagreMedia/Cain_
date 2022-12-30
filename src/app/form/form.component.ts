@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FORM_FIELDS } from './components/formFields';
+import { COPY } from '../shared/copy/copy';
 
 const PHONE_NUMBER_REGEX = /(^[0-9]{3})-([0-9]{3})-([0-9]{4}$)/gm;
 @Component({
@@ -9,6 +10,8 @@ const PHONE_NUMBER_REGEX = /(^[0-9]{3})-([0-9]{3})-([0-9]{4}$)/gm;
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  copy = COPY;
+
   contactInfoFormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
