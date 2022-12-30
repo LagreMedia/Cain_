@@ -1,16 +1,16 @@
 .wrapper {
-    min-height: 100vh;
     background: linear-gradient(#053262, #1061b5, #3689df, #a5761b, #c4840d);
-
     color: white;
-
     min-height: 100% !important;
+    // height: 100%;
+    
     .form-wrapper {
-        height: 100% ;
         display: flex;
         align-items: center;
         flex-direction: column;
+        border: 3px solid green;
         .logo-wrapper {
+            border: 3px solid red;
             width: 100%;
             margin: 50px 0 0 0;
             p {
@@ -19,6 +19,8 @@
             }
         }
         .info-wrapper {
+            border: 3px solid orange;
+            width: 100%;
             h1 {
                 font-size: 70px;
             }
@@ -29,9 +31,11 @@
             }
         }
         .form-step-wrapper {
+            border: 3px solid green;
+            background-color: white;
             width: 60%;
             margin: 20px;
-
+            border-radius: 5px;
             .contactInfo {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -89,7 +93,3 @@ button {
     color: white;
 }
 
-::ng-deep .mat-form-field-outline {
-    background-color: #f6f7f8 !important;
-    border-radius: 5px;
-}
