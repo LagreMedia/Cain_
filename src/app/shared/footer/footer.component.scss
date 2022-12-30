@@ -1,24 +1,24 @@
 .wrapper {
-    height: 20vh;
     background: #383838;
 
     display: flex;
+    height: auto;
     align-items: center;
     justify-content: center;
-}
-
-.content {
-    width: 60%;
-    padding: 20px 0 20px 0;
 
     color: white;
     font-family: Inter;
     text-align: center;
 }
 
+p {
+    padding: 20px 0 20px 0;
+    width: 80%;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .content {
-        width: 80%;
+        font-size: small;
     }
 }
