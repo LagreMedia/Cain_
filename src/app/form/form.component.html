@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="form-wrapper">
         <div class="logo-wrapper">
-            <p>Logo Here</p>
+            <img src="../../assets/berkeley-logo.png">
         </div>
         <div class="info-wrapper">
             <h1>
@@ -197,7 +197,7 @@
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Submit Form</ng-template>
-                    <p style="color: black;">Legal Information Here</p>
+                    <p style="color: black;">{{ copy.submissionLegal }}</p>
                     <div class="button-next">
                         <button mat-raised-button (click)="onSubmit()">Submit</button>
                     </div>

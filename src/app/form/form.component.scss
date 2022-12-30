@@ -10,17 +10,16 @@
         flex-direction: column;
         border: 3px solid green;
         .logo-wrapper {
+            display: grid;
+            justify-items: end;
             border: 3px solid red;
             width: 100%;
-            margin: 50px 0 0 0;
-            p {
-                text-align: right;
-                margin-right: 100px;
-            }
+            margin: 10px 0 0 0;
         }
         .info-wrapper {
             border: 3px solid orange;
             width: 100%;
+            margin-left: 10vw;
             h1 {
                 font-size: 70px;
             }
@@ -70,6 +69,9 @@
             }
             .label {
                 display: none;
+            }
+            .info-wrapper {
+                margin-left: 0px;
             }
         }
 

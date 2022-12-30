@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { COPY } from '../copy/copy';
 
 @Component({
   selector: 'app-content',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
+  copy = COPY;
 
   constructor() { }
 
