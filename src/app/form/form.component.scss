@@ -16,9 +16,10 @@
             justify-items: end;
             width: 100%;
             height: auto;
-            margin: 10px 0 0 10px;
+            margin: 10px 0 0 0px;
             img {
-                max-width: 100%;
+                max-width: 450px;
+                width: auto;
                 height: auto;
             }
         }
@@ -82,6 +83,18 @@
             }
             .info-wrapper {
                 margin-left: 0px;
+            }
+            .mobile-spacer {
+                height: 10vh;   
+            }
+            .logo-wrapper {
+                display: grid;
+                justify-items: center;
+                img {
+                    padding: 0 10px 0 10px;
+                    width: 100vw;
+                    height: auto;
+                }
             }
         }
 
