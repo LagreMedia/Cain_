@@ -1,6 +1,5 @@
 <div class="wrapper">
     <div class="form-wrapper">
-        <div class="mobile-spacer"></div>
         <div class="logo-wrapper">
             <img src="../../assets/berkeley-logo.png">
         </div>
@@ -88,7 +87,24 @@
                             [(ngModel)]="additionalInfo.motivation"
                             ngDefaultControl
                         ></app-input-field>
+                        <app-input-field
+                            id="leadid_token"
+                            name="universal_leadid"
+                            type="hidden"
+                            value=""
+                        ></app-input-field>
                     </form>
+                    
+                    <script id="LeadiDscript" type="text/javascript">
+                        (function() {
+                            var s = document.createElement('script');
+                            s.id = 'LeadiDscript_campaign';
+                            s.type = 'text/javascript';
+                            s.async = true;
+                            s.src = '//create.lidstatic.com/campaign/xxxxxx.js'
+                        })
+                    </script>
+
                     <div class="button-next">
                         <button mat-button matStepperNext [disabled]="additionalInfoFormNotComplete">Next</button>
                     </div>
@@ -121,6 +137,15 @@
                             [onError]="getErrorMessage(contactInfoFormGroup.get('address'))"
                             [(ngModel)]="contactInfo.address"
                             name="address"
+                            ngDefaultControl
+                        ></app-input-field>
+                        <app-input-field 
+                            fieldLabel='APT/Suite Number' 
+                            placeHolder='APT A4'
+                            [formControl]="contactInfoFormGroup.get('aptSuiteFloorNum')"
+                            [onError]="getErrorMessage(contactInfoFormGroup.get('aptSuiteFloorNum'))"
+                            [(ngModel)]="contactInfo.aptSuiteFloorNum"
+                            name="aptSuiteFloorNum"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field 
@@ -185,7 +210,7 @@
                             placeHolder='1233 Lake Ave'
                             [formControl]="contactInfoFormGroup.get('gender')"
                             inputType="dropdown"
-                            [list]="['Male', 'Female']"
+                            [list]="formFields.gender"
                             [onError]="getErrorMessage(contactInfoFormGroup.get('gender'))"
                             name="gender"
                             [(ngModel)]="contactInfo.gender"

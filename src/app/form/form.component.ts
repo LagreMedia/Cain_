@@ -3,7 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FORM_FIELDS } from './components/formFields';
 import { COPY } from '../shared/copy/copy';
 
+const ZIP_REGEX = /^\d{5}$/gm;
 const PHONE_NUMBER_REGEX = /(^[0-9]{3})-([0-9]{3})-([0-9]{4}$)/gm;
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -13,15 +15,16 @@ export class FormComponent implements OnInit {
   copy = COPY;
 
   contactInfoFormGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
+    firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
     address: new FormControl('', [Validators.required]),
+    aptSuiteFloorNum: new FormControl(''),
     city: new FormControl('', [Validators.required]),
     state: new FormControl('', [Validators.required]),
-    zipCode: new FormControl('', [Validators.required]),
+    zipCode: new FormControl('', [Validators.required, Validators.pattern(ZIP_REGEX)]),
     emailAddress: new FormControl('', [Validators.required, Validators.email]),
     homePhone: new FormControl('', [Validators.required, Validators.pattern(PHONE_NUMBER_REGEX)]),
-    age: new FormControl('', [Validators.required]),
+    age: new FormControl('', [Validators.required, FORM_FIELDS.age]),
     gender: new FormControl('', [Validators.required])
   });
 
@@ -29,7 +32,7 @@ export class FormComponent implements OnInit {
   formFields = FORM_FIELDS;
 
   additionalInfoFormGroup = new FormGroup({
-    graduationYear: new FormControl('', [Validators.required]),
+    graduationYear: new FormControl('', [Validators.required, FORM_FIELDS.graduationYear]),
     militaryAffil: new FormControl('', [Validators.required]),
     highestEducation: new FormControl('', [Validators.required]),
     campusPreference: new FormControl('', [Validators.required]),
@@ -43,6 +46,7 @@ export class FormComponent implements OnInit {
     firstname: '',
     lastname: '',
     address: '',
+    aptSuiteFloorNum: '',
     city: '',
     state: '',
     zipCode: '',
