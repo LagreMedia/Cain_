@@ -29,6 +29,10 @@ export const FORM_FIELDS = {
         { value: '9', title: '9' },
         { value: '10', title: '10 - Very motivated' },
     ],
+    gender: [
+        { value: 'M', title: 'Male' },
+        { value: 'F', title: 'Female' }
+    ],
     militaryAffiliation: [
         'No Military Affiliation',
         'Army (Active)',

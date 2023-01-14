@@ -202,7 +202,7 @@
                             placeHolder='1233 Lake Ave'
                             [formControl]="contactInfoFormGroup.get('gender')"
                             inputType="dropdown"
-                            [list]="['Male', 'Female']"
+                            [list]="formFields.gender"
                             [onError]="getErrorMessage(contactInfoFormGroup.get('gender'))"
                             name="gender"
                             [(ngModel)]="contactInfo.gender"
