@@ -9,6 +9,7 @@
     "test": "ng test",
     "test:silent": "ng test --sourceMap=false --browsers=ChromeHeadless --watch=false",
     "lint": "npx ng lint Cain_",
+    "lint:fix": "npx ng lint --fix Cain_",
     "prepare": "husky install"
   },
   "private": true,
