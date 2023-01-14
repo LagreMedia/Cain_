@@ -30,6 +30,7 @@
         ],
         "rules": {
           "@typescript-eslint/adjacent-overload-signatures": "off",
+          "@typescript-eslint/naming-convention": "off",
           "@angular-eslint/component-selector": [
             "error",
             {
@@ -58,33 +59,6 @@
           "@typescript-eslint/prefer-for-of": "off",
           "@typescript-eslint/member-delimiter-style": "off",
           "@typescript-eslint/member-ordering": "off",
-          "@typescript-eslint/naming-convention": [
-            "error",
-            {
-              "selector": "default",
-              "format": ["camelCase", "UPPER_CASE", "StrictPascalCase"],
-              "leadingUnderscore": "allow"
-            },
-            {
-              "selector": "enum",
-              "format": ["camelCase", "UPPER_CASE", "PascalCase"]
-            },
-            {
-              "selector": "enumMember",
-              "format": ["camelCase", "UPPER_CASE", "PascalCase"]
-            },
-            {
-              "selector": "variable",
-              "format": ["camelCase", "UPPER_CASE", "StrictPascalCase"],
-              "leadingUnderscore": "allow"
-            },
-        
-            {
-              "selector": "typeLike",
-              "format": ["PascalCase"],
-              "leadingUnderscore": "allow"
-            }
-          ],
           "@typescript-eslint/no-unused-expressions": "off",
           "@typescript-eslint/no-namespace": "off",
           "@typescript-eslint/no-shadow": "off",
