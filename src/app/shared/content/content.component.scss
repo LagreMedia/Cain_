@@ -1,6 +1,6 @@
 .wrapper {
     height: 80vh;
-    min-height: inherit !important;
+    min-height: fit-content !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,23 +8,41 @@
 
 .content {
     padding: 50px 0 50px 0;
-    
+    height: 80%;
     display: grid;
-    gap: 100px;
 }
 
-.mobile-button-wrapper {
-    position: absolute;
-    visibility: hidden;
-}
-
-.divider {
+.divider-top {
     display: grid;
     justify-self: center;
-    width: 75%;
+    width: 35%;
     height: 2px;
-    background: black;
+    background: #CFCFCF;
 }
+.divider-top-bottom {
+    display: grid;
+    justify-self: center;
+    width: 50%;
+    height: 2px;
+    background: #CFCFCF;
+
+}
+.divider-bottom-top {
+    display: grid;
+    justify-self: center;
+    width: 50%;
+    height: 2px;
+    background: #CFCFCF;
+
+}
+.divider-bottom-bottom {
+    display: grid;
+    justify-self: center;
+    width: 35%;
+    height: 2px;
+    background: #CFCFCF;
+}
+
 .full-width {
     width: 100%;
     display: flex;
@@ -32,10 +50,10 @@
 }
 
 .text-wrapper {
-    padding: 0 50px 0 50px;
+    height: 100%;
     display: grid;
-    gap: 50px 0px;
-    justify-content: center;
+    grid: 1fr;
+    gap: 1.5vw 0px;
     text-align: center;
 }
 
@@ -46,34 +64,42 @@ p {
 }
 
 .row-one {
-    text-align: center;
+    text-align: justify;
     width: 50%;
 }
 .row-two {
-    text-align: center;
+    text-align: justify;
     width: 50%;
 }
 
 .button-wrapper {
     display: flex;
     justify-content: space-around;
+    height: 40px;
 
-    a {
-        padding: 5px 50px 5px 50px;
+    button {
         text-transform: uppercase;
         cursor: pointer;
         transition: opacity 0.2s ease;
         font-weight: normal;
-    
         background: #01D756;
         color: white;
     }
 }
 
-.mobile-header-one {
-    visibility: visible;
+.header-one {
     font-weight: bolder;
     position: inherit;
+    display: flex;
+    justify-content: center;
+
+    .header-one-content {
+        width: 50%;
+        display: inline-block;
+        align-self: flex-end;
+        text-align: left;
+        font-size:calc(100% + 1vw);
+    }
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -82,7 +108,34 @@ p {
         height: inherit;
     }
     .text-wrapper {
-        .divider {
+        .divider-top {
+            visibility: visible;
+            position: inherit;
+            display: grid;
+            justify-self: center;
+            width: 60vw;
+            height: 2px;
+            background: black;
+        }
+        .divider-top-bottom {
+            visibility: visible;
+            position: inherit;
+            display: grid;
+            justify-self: center;
+            width: 60vw;
+            height: 2px;
+            background: black;
+        }
+        .divider-bottom-top {
+            visibility: visible;
+            position: inherit;
+            display: grid;
+            justify-self: center;
+            width: 60vw;
+            height: 2px;
+            background: black;
+        }
+        .divider-bottom-bottom {
             visibility: visible;
             position: inherit;
             display: grid;
@@ -95,28 +148,23 @@ p {
         gap: 15px;
     }
 
-    p {
-        text-align: center !important;
-    }
 
-    .button-wrapper {
-        visibility: hidden;
-    }
-
-    .mobile-header-one {
+    .header-one {
         visibility: visible;
         font-weight: bolder;
         position: inherit;
+        justify-content: center;
+        .header-one-content {
+            text-align: center;
+        }
     }
 
-    .mobile-button-wrapper {
-        visibility: visible;
+    .button-wrapper {
         display: flex;
         justify-content: space-around;
         position:inherit;
-        a {
-            padding: 5px 50px 5px 50px;
-            margin: 0 0 20px 0;
+        height: 40px;
+        button {
             text-transform: uppercase;
             cursor: pointer;
             transition: opacity 0.2s ease;
@@ -127,11 +175,13 @@ p {
         }
     }
     .row-one {
-        text-align: center;
-        width: 100%;
+        text-align: justify;
+        width: 80%;
+        padding: 0 10px 0 10px;
     }
     .row-two {
-        text-align: center;
-        width: 100%;
+        text-align: justify;
+        width: 80%;
+        padding: 0 10px 0 10px;
     }
 }
