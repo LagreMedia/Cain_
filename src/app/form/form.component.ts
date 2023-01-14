@@ -1,7 +1,11 @@
+/*eslint max-len: ["error", { "code": 400 }]*/
+
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FORM_FIELDS } from './components/formFields';
 import { COPY } from '../shared/copy/copy';
+import { address, address2, age, BerkleyLead, CAMPAIGN_CODE, campus_id, city, consent_url, education_level_id, email, firstname, gender, grad_year, ip, lastname, leadTest, level_interest, media_type, military_type, phone1, program_id, service_leadid, signup_url, start_date, state, tcpa_consent, zip } from '../types/berkley-lead';
+import { LeadHoopService } from '../services/leadhoop.service';
 
 const ZIP_REGEX = /^\d{5}$/gm;
 const PHONE_NUMBER_REGEX = /(^[0-9]{3})-([0-9]{3})-([0-9]{4}$)/gm;
@@ -24,7 +28,7 @@ export class FormComponent implements OnInit {
     zipCode: new FormControl('', [Validators.required, Validators.pattern(ZIP_REGEX)]),
     emailAddress: new FormControl('', [Validators.required, Validators.email]),
     homePhone: new FormControl('', [Validators.required, Validators.pattern(PHONE_NUMBER_REGEX)]),
-    age: new FormControl('', [Validators.required, FORM_FIELDS.age]),
+    age: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required])
   });
 
@@ -32,7 +36,7 @@ export class FormComponent implements OnInit {
   formFields = FORM_FIELDS;
 
   additionalInfoFormGroup = new FormGroup({
-    graduationYear: new FormControl('', [Validators.required, FORM_FIELDS.graduationYear]),
+    graduationYear: new FormControl('', [Validators.required]),
     militaryAffil: new FormControl('', [Validators.required]),
     highestEducation: new FormControl('', [Validators.required]),
     campusPreference: new FormControl('', [Validators.required]),
@@ -88,7 +92,7 @@ export class FormComponent implements OnInit {
     return '';
   }
 
-  constructor() { }
+  constructor(private leadHoopService: LeadHoopService) { }
 
   ngOnInit(): void {
     this.contactInfoFormGroup.valueChanges.subscribe((value) => {
@@ -126,8 +130,38 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     // TODO
-    console.log(this.contactInfoFormGroup.value);
-    console.log(this.additionalInfoFormGroup.value);
+    const contactForm = this.contactInfoFormGroup.value;
+    const additionalInfo = this.additionalInfoFormGroup.value;
+
+    const lead: BerkleyLead = {
+      campaign_code: CAMPAIGN_CODE,
+      [firstname]: contactForm.firstName,
+      [lastname]: contactForm.lastName,
+      [address]: contactForm.address,
+      [address2]: contactForm.aptSuiteFloorNum,
+      [city]: contactForm.city,
+      [state]: contactForm.state,
+      [zip]: contactForm.zipCode,
+      [email]: contactForm.emailAddress,
+      [phone1]: contactForm.homePhone,
+      [age]: contactForm.age,
+      [gender]: contactForm.gender,
+      [grad_year]: additionalInfo.graduationYear,
+      [military_type]: additionalInfo.militaryAffil,
+      [education_level_id]: additionalInfo.highestEducation,
+      [program_id]: additionalInfo.programOfInterest,
+      [campus_id]: additionalInfo.campusPreference,
+      [start_date]: additionalInfo.startDate,
+      [level_interest]: additionalInfo.motivation,
+      [tcpa_consent]: true, // this should come from checkbox
+      [service_leadid]: 'TBD',
+      [ip]: 'TBD',
+      [signup_url]: 'TBD',
+      [leadTest]: true,
+      [media_type]: 'TBD',
+    };
+    console.log(lead);
+    this.leadHoopService.postLead(lead);
   }
 
 }
