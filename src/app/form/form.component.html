@@ -123,6 +123,15 @@
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field 
+                            fieldLabel='APT/Suite Number' 
+                            placeHolder='APT A4'
+                            [formControl]="contactInfoFormGroup.get('aptSuiteFloorNum')"
+                            [onError]="getErrorMessage(contactInfoFormGroup.get('aptSuiteFloorNum'))"
+                            [(ngModel)]="contactInfo.aptSuiteFloorNum"
+                            name="aptSuiteFloorNum"
+                            ngDefaultControl
+                        ></app-input-field>
+                        <app-input-field 
                             fieldLabel='City' 
                             placeHolder='New York'
                             [(ngModel)]="contactInfo.city"
