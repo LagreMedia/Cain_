@@ -81,18 +81,19 @@
                             fieldLabel="How motivated are you to further your education?"
                             inputType="dropdown"
                             [formControl]="additionalInfoFormGroup.get('motivation')"
-                            [list]="formFields.motivationLevel"
+                            [list]="formFields.motivationLevel.reverse()"
                             [onError]="getErrorMessage(additionalInfoFormGroup.get('motivation'))"
                             name="highschool"
                             [(ngModel)]="additionalInfo.motivation"
                             ngDefaultControl
                         ></app-input-field>
-                        <app-input-field
+
+                        <input
                             id="leadid_token"
                             name="universal_leadid"
                             type="hidden"
                             value=""
-                        ></app-input-field>
+                        >
                     </form>
                     
                     <script id="LeadiDscript" type="text/javascript">
