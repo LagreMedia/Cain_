@@ -21,7 +21,7 @@
                             inputType="dropdown"
                             [list]="formFields.graduationYear()"
                             [formControl]="additionalInfoFormGroup.get('graduationYear')"
-                            [onError]="getErrorMessage(additionalInfoFormGroup.get('graduationYear'))"
+                            [onError]="getErrorMessage"
                             name="highschool"
                             [(ngModel)]="additionalInfo.graduationYear"
                             ngDefaultControl
@@ -31,7 +31,7 @@
                             inputType="dropdown"
                             [list]="formFields.militaryAffiliation"
                             [formControl]="additionalInfoFormGroup.get('militaryAffil')"
-                            [onError]="getErrorMessage(additionalInfoFormGroup.get('militaryAffil'))"
+                            [onError]="getErrorMessage"
                             name="highschool"
                             [(ngModel)]="additionalInfo.militaryAffil"
                             ngDefaultControl
@@ -41,7 +41,7 @@
                             inputType="dropdown"
                             [list]="formFields.levelOfEducation"
                             [formControl]="additionalInfoFormGroup.get('highestEducation')"
-                            [onError]="getErrorMessage(additionalInfoFormGroup.get('highestEducation'))"
+                            [onError]="getErrorMessage"
                             name="highschool"
                             [(ngModel)]="additionalInfo.highestEducation"
                             ngDefaultControl
@@ -51,7 +51,7 @@
                             inputType="dropdown"
                             [list]="formFields.programOfInterest"
                             [formControl]="additionalInfoFormGroup.get('programOfInterest')"
-                            [onError]="getErrorMessage(additionalInfoFormGroup.get('programOfInterest'))"
+                            [onError]="getErrorMessage"
                             name="highschool"
                             [(ngModel)]="additionalInfo.programOfInterest"
                             ngDefaultControl
@@ -61,7 +61,7 @@
                             inputType="dropdown"
                             [formControl]="additionalInfoFormGroup.get('campusPreference')"
                             [list]="formFields.campusPreference"
-                            [onError]="getErrorMessage(additionalInfoFormGroup.get('campusPreference'))"
+                            [onError]="getErrorMessage"
                             name="highschool"
                             [(ngModel)]="additionalInfo.campusPreference"
                             ngDefaultControl
@@ -71,7 +71,7 @@
                             inputType="dropdown"
                             [formControl]="additionalInfoFormGroup.get('startDate')"
                             [list]="formFields.startDate"
-                            [onError]="getErrorMessage(additionalInfoFormGroup.get('startDate'))"
+                            [onError]="getErrorMessage"
                             name="highschool"
                             [(ngModel)]="additionalInfo.startDate"
                             ngDefaultControl
@@ -82,7 +82,7 @@
                             inputType="dropdown"
                             [formControl]="additionalInfoFormGroup.get('motivation')"
                             [list]="formFields.motivationLevel.reverse()"
-                            [onError]="getErrorMessage(additionalInfoFormGroup.get('motivation'))"
+                            [onError]="getErrorMessage"
                             name="highschool"
                             [(ngModel)]="additionalInfo.motivation"
                             ngDefaultControl
@@ -118,7 +118,7 @@
                             [(ngModel)]="contactInfo.firstname"
                             placeHolder='John'
                             [formControl]="contactInfoFormGroup.get('firstName')"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('firstName'))"
+                            [onError]="getErrorMessage"
                             name="firstname"
                             ngDefaultControl
                         ></app-input-field>
@@ -127,7 +127,7 @@
                             placeHolder='Doe'
                             [(ngModel)]="contactInfo.lastname"
                             [formControl]="contactInfoFormGroup.get('lastName')"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('lastName'))"
+                            [onError]="getErrorMessage"
                             name="lastname"
                             ngDefaultControl
                         ></app-input-field>
@@ -135,7 +135,7 @@
                             fieldLabel='Address' 
                             placeHolder='1233 Lake Ave'
                             [formControl]="contactInfoFormGroup.get('address')"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('address'))"
+                            [onError]="getErrorMessage"
                             [(ngModel)]="contactInfo.address"
                             name="address"
                             ngDefaultControl
@@ -144,7 +144,7 @@
                             fieldLabel='APT/Suite Number' 
                             placeHolder='APT A4'
                             [formControl]="contactInfoFormGroup.get('aptSuiteFloorNum')"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('aptSuiteFloorNum'))"
+                            [onError]="getErrorMessage"
                             [(ngModel)]="contactInfo.aptSuiteFloorNum"
                             name="aptSuiteFloorNum"
                             ngDefaultControl
@@ -154,7 +154,7 @@
                             placeHolder='New York'
                             [(ngModel)]="contactInfo.city"
                             [formControl]="contactInfoFormGroup.get('city')"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('city'))"
+                            [onError]="getErrorMessage"
                             name="city"
                             ngDefaultControl
                         ></app-input-field>
@@ -165,7 +165,7 @@
                             [(ngModel)]="contactInfo.state"
                             inputType="dropdown"
                             [list]="formFields.states"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('state'))"
+                            [onError]="getErrorMessage"
                             name="state"
                             ngDefaultControl
                         ></app-input-field>
@@ -174,7 +174,7 @@
                             placeHolder='12335'
                             [(ngModel)]="contactInfo.zipCode"
                             [formControl]="contactInfoFormGroup.get('zipCode')"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('zipCode'))"
+                            [onError]="getErrorMessage"
                             name="zipCode"
                             ngDefaultControl
                         ></app-input-field>
@@ -183,17 +183,19 @@
                             placeHolder='johndoe@email.com'
                             [formControl]="contactInfoFormGroup.get('emailAddress')"
                             [(ngModel)]="contactInfo.emailAddress"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('emailAddress'))"
+                            [onError]="getErrorMessage"
                             name="emailAddress"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field 
                             fieldLabel='Home Phone' 
-                            placeHolder='xxx-xxx-xxxx'
-                            [(ngModel)]="contactInfo.homePhone"
+                            placeHolder='(xxx) xxx-xxxx'
                             [formControl]="contactInfoFormGroup.get('homePhone')"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('homePhone'))"
+                            [onError]="getErrorMessage"
+                            [(ngModel)]="contactInfo.homePhone"
                             name="homePhone"
+                            [onKeyUp]="onKeyUpPhoneNumber"
+                            inputType="number"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field 
@@ -202,7 +204,7 @@
                             [formControl]="contactInfoFormGroup.get('age')"
                             [(ngModel)]="contactInfo.age"
                             inputType="dropdown"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('age'))"
+                            [onError]="getErrorMessage"
                             name="age"
                             ngDefaultControl
                         ></app-input-field>
@@ -212,7 +214,7 @@
                             [formControl]="contactInfoFormGroup.get('gender')"
                             inputType="dropdown"
                             [list]="formFields.gender"
-                            [onError]="getErrorMessage(contactInfoFormGroup.get('gender'))"
+                            [onError]="getErrorMessage"
                             name="gender"
                             [(ngModel)]="contactInfo.gender"
                             ngDefaultControl

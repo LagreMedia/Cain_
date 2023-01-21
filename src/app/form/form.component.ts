@@ -8,7 +8,7 @@ import { address, address2, age, BerkleyLead, CAMPAIGN_CODE, campus_id, city, co
 import { LeadHoopService } from '../services/leadhoop.service';
 
 const ZIP_REGEX = /^\d{5}$/gm;
-const PHONE_NUMBER_REGEX = /(^[0-9]{3})-([0-9]{3})-([0-9]{4}$)/gm;
+const PHONE_NUMBER_REGEX = /(^[(][0-9]{3})[)][ ]([0-9]{3})-([0-9]{4}$)/gm;
 
 @Component({
   selector: 'app-form',
@@ -79,15 +79,22 @@ export class FormComponent implements OnInit {
     }
   }
 
-  getErrorMessage(control: any) {
+  getErrorMessage(control: any, fieldLabel: string) {
     if (control.hasError('required')) {
       return 'Field is required';
     }
     if (control.hasError('email')) {
       return 'Please enter a valid email';
     }
+    if (control.hasError('minLength')) {
+      return `${fieldLabel} needs to be at least 2 characters`;
+    }
     if (control.hasError('pattern')) {
-      return 'Phone number must have format: xxx-xxx-xxxx';
+      if (fieldLabel === 'Home Phone') {
+        return 'Phone number must have format: (xxx) xxx-xxxx';
+      } else {
+        return 'Zipcode must be 5 digits';
+      }
     }
     return '';
   }
@@ -126,6 +133,29 @@ export class FormComponent implements OnInit {
         }
         break;
     }
+  }
+
+  onKeyUpPhoneNumber(event: any, formControl: FormControl) {
+    const keyPressed = event.key;
+    const currentValue = formControl.value as string;
+    const numbers = currentValue.split('').filter((value) => !isNaN(parseInt(value, 10)));
+    const numOfNumbers = numbers.length;
+    console.log(numOfNumbers);
+    if (keyPressed === 'Backspace') {
+      return;
+    }
+    switch(numOfNumbers) {
+      case 3:
+        formControl.setValue(`(${numbers.join('')})`);
+        break;
+      case 4:
+        formControl.setValue(`(${numbers.slice(0, 3).join('')}) ${numbers[3]}`);
+        break;
+      case 7:
+        formControl.setValue(`(${numbers.slice(0, 3).join('')}) ${numbers.slice(3, 6).join('')}-${numbers[6]}`);
+        break;
+    }
+    console.log(formControl.value);
   }
 
   onSubmit() {
