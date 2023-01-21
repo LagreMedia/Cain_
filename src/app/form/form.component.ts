@@ -140,7 +140,6 @@ export class FormComponent implements OnInit {
     const currentValue = formControl.value as string;
     const numbers = currentValue.split('').filter((value) => !isNaN(parseInt(value, 10)));
     const numOfNumbers = numbers.length;
-    console.log(numOfNumbers);
     if (keyPressed === 'Backspace') {
       return;
     }
