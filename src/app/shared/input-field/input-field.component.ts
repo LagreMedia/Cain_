@@ -14,7 +14,8 @@ export class InputFieldComponent implements OnInit {
   @Input() inputType: 'input' | 'number' | 'dropdown' | 'radio' = 'input';
   @Input() list: string[] = [];
   @Input() formControl: any = new FormControl();
-  @Input() onError: any = undefined;
+  @Input() onError: any = () => {};
+  @Input() onKeyUp: any = () => {};
 
   isRequired = false;
 
