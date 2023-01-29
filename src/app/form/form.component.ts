@@ -154,7 +154,6 @@ export class FormComponent implements OnInit {
         formControl.setValue(`(${numbers.slice(0, 3).join('')}) ${numbers.slice(3, 6).join('')}-${numbers[6]}`);
         break;
     }
-    console.log(formControl.value);
   }
 
   onSubmit() {
