@@ -26,10 +26,10 @@ $Cain_-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-@font-face {
-    font-family: "Inter";
-    src: local("Inter"), url(./assets/fonts/Inter/Inter-Regular.ttf) format("truetype");
-}
+// @font-face {
+//     font-family: "Inter";
+//     src: local("Inter"), url(assets/fonts/Inter/Inter-Regular.ttf) format("truetype");
+// }
 
 * {
   margin: 0;
