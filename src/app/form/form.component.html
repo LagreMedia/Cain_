@@ -22,7 +22,7 @@
                             [list]="formFields.graduationYear()"
                             [formControl]="additionalInfoFormGroup.get('graduationYear')"
                             [onError]="getErrorMessage"
-                            name="highschool"
+                            name="highSchoolGradYear"
                             [(ngModel)]="additionalInfo.graduationYear"
                             ngDefaultControl
                         ></app-input-field>
@@ -32,7 +32,7 @@
                             [list]="formFields.militaryAffiliation"
                             [formControl]="additionalInfoFormGroup.get('militaryAffil')"
                             [onError]="getErrorMessage"
-                            name="highschool"
+                            name="militaryAffiliation"
                             [(ngModel)]="additionalInfo.militaryAffil"
                             ngDefaultControl
                         ></app-input-field>
@@ -42,7 +42,7 @@
                             [list]="formFields.levelOfEducation"
                             [formControl]="additionalInfoFormGroup.get('highestEducation')"
                             [onError]="getErrorMessage"
-                            name="highschool"
+                            name="highestLevelEducation"
                             [(ngModel)]="additionalInfo.highestEducation"
                             ngDefaultControl
                         ></app-input-field>
@@ -52,7 +52,7 @@
                             [list]="formFields.programOfInterest"
                             [formControl]="additionalInfoFormGroup.get('programOfInterest')"
                             [onError]="getErrorMessage"
-                            name="highschool"
+                            name="programOfInterest"
                             [(ngModel)]="additionalInfo.programOfInterest"
                             ngDefaultControl
                         ></app-input-field>
@@ -62,17 +62,17 @@
                             [formControl]="additionalInfoFormGroup.get('campusPreference')"
                             [list]="formFields.campusPreference"
                             [onError]="getErrorMessage"
-                            name="highschool"
+                            name="campusPreference"
                             [(ngModel)]="additionalInfo.campusPreference"
                             ngDefaultControl
                         ></app-input-field>
                         <app-input-field
-                            fieldLabel="Desired State Date?"
+                            fieldLabel="Desired Start Date?"
                             inputType="dropdown"
                             [formControl]="additionalInfoFormGroup.get('startDate')"
                             [list]="formFields.startDate"
                             [onError]="getErrorMessage"
-                            name="highschool"
+                            name="desiredStartDate"
                             [(ngModel)]="additionalInfo.startDate"
                             ngDefaultControl
                         ></app-input-field>
@@ -83,28 +83,18 @@
                             [formControl]="additionalInfoFormGroup.get('motivation')"
                             [list]="formFields.motivationLevel.reverse()"
                             [onError]="getErrorMessage"
-                            name="highschool"
+                            name="motivation"
                             [(ngModel)]="additionalInfo.motivation"
                             ngDefaultControl
                         ></app-input-field>
 
-                        <input
-                            id="leadid_token"
-                            name="universal_leadid"
-                            type="hidden"
+                        <input 
+                            id="leadid_token" 
+                            name="universal_leadid" 
+                            type="hidden" 
                             value=""
-                        >
+                        />
                     </form>
-                    
-                    <script id="LeadiDscript" type="text/javascript">
-                        (function() {
-                            var s = document.createElement('script');
-                            s.id = 'LeadiDscript_campaign';
-                            s.type = 'text/javascript';
-                            s.async = true;
-                            s.src = '//create.lidstatic.com/campaign/xxxxxx.js'
-                        })
-                    </script>
 
                     <div class="button-next">
                         <button mat-button matStepperNext [disabled]="additionalInfoFormNotComplete">Next</button>

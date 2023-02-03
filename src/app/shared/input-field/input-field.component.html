@@ -7,24 +7,40 @@
             [placeholder]="placeHolder" 
             [formControl]="formControl" 
             [required]="isRequired"
+            [id]="fieldLabel.replaceAll(' ', '')"
+            [value]="formControl.value"
+            [name]="fieldLabel"
         >
         <mat-error *ngIf="formControl.invalid">{{ onError(formControl, fieldLabel) }}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" *ngIf="inputType === 'number'">
         <mat-label>{{ fieldLabel }}</mat-label>
         <input 
-        type="text" 
-        matInput 
-        [placeholder]="placeHolder" 
-        [formControl]="formControl" 
-        [required]="isRequired"
-        (keyup)="onKeyUp($event, formControl)"
+            type="text" 
+            matInput 
+            [placeholder]="placeHolder" 
+            [formControl]="formControl" 
+            [required]="isRequired"
+            (keyup)="onKeyUp($event, formControl)"
+            [id]="fieldLabel.replaceAll(' ', '')"
+            [value]="formControl.value"
+            [name]="fieldLabel"
         >
         <mat-error *ngIf="formControl.invalid">{{ onError(formControl, fieldLabel) }}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" *ngIf="inputType === 'dropdown'">
         <mat-label>{{ fieldLabel }}</mat-label>
-        <mat-select [formControl]="formControl" [required]="isRequired">
+        <input
+            [hidden]="true"
+            type="checkbox"
+            [id]="fieldLabel.replaceAll(' ', '')" 
+            [value]="formControl.value"
+            [name]="fieldLabel"
+        >
+        <mat-select 
+            [formControl]="formControl" 
+            [required]="isRequired" 
+        >
             <mat-option *ngFor="let l of list" [value]="l.value ?? l">
                 {{ l.title ?? l }}
             </mat-option>
