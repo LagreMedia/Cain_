@@ -54,7 +54,7 @@ export interface BerkleyLead {
     [campus_id]: number
     [start_date]: string
     [level_interest]?: number
-    [tcpa_consent]: boolean
+    [tcpa_consent]: string
     [service_leadid]: string
     [ip]: string
     subid?: string

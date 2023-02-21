@@ -17,7 +17,7 @@ const PHONE_NUMBER_REGEX = /(^[(][0-9]{3})[)][ ]([0-9]{3})-([0-9]{4}$)/gm;
 })
 export class FormComponent implements OnInit {
   copy = COPY;
-
+  isConsentClicked = false;
   contactInfoFormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
     lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
@@ -156,10 +156,16 @@ export class FormComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
+    if (!this.isConsentClicked) {
+      window.alert('Please click the checkbox before submitting.');
+      return;
+    }
     // TODO
     const contactForm = this.contactInfoFormGroup.value;
     const additionalInfo = this.additionalInfoFormGroup.value;
+    const leadid = document.cookie.split('=')[1];
+    const ip_addr = await this.leadHoopService.getIpAddress();
 
     const lead: BerkleyLead = {
       campaign_code: CAMPAIGN_CODE,
@@ -181,15 +187,15 @@ export class FormComponent implements OnInit {
       [campus_id]: additionalInfo.campusPreference,
       [start_date]: additionalInfo.startDate,
       [level_interest]: additionalInfo.motivation,
-      [tcpa_consent]: true, // this should come from checkbox
-      [service_leadid]: 'TBD',
-      [ip]: 'TBD',
+      [tcpa_consent]: 'Yes',
+      [service_leadid]: leadid,
+      [ip]: ip_addr,
       [signup_url]: 'TBD',
       [leadTest]: true,
       [media_type]: 'TBD',
     };
     console.log(lead);
-    this.leadHoopService.postLead(lead);
+    await this.leadHoopService.postLead(lead);
   }
 
 }
